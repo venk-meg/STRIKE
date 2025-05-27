@@ -1,0 +1,2 @@
+Current Steps:
+1. SPI for IMU to ESP32 communication (fastest communication) --> to set up data reading, write my own device driver and use sensor fusion from bn008x.
