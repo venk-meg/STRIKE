@@ -3,6 +3,7 @@ https://github.com/myles-parfeniuk/esp32_BNO08x (Device Driver IMU + ESP32 examp
 https://www.youtube.com/watch?v=fvOAbDMzoks (SPI intro)
 https://lastminuteengineers.com/esp32-wroom-32-pinout-reference/ (Pinout ESP32)
 https://github.com/rtek1000/YD-ESP32-23?tab=readme-ov-file (ESP32 devkit in use)
+https://www.makerguides.com/find-i2c-and-spi-default-pins/
 
 DATASHEETS
 https://www.ceva-ip.com/wp-content/uploads/BNO080_085-Datasheet.pdf
