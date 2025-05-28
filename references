@@ -2,6 +2,7 @@ https://www.totalphase.com/blog/2021/12/i2c-vs-spi-vs-uart-introduction-and-comp
 https://github.com/myles-parfeniuk/esp32_BNO08x (Device Driver IMU + ESP32 example)
 https://www.youtube.com/watch?v=fvOAbDMzoks (SPI intro)
 https://lastminuteengineers.com/esp32-wroom-32-pinout-reference/ (Pinout ESP32)
+https://github.com/rtek1000/YD-ESP32-23?tab=readme-ov-file (ESP32 devkit in use)
 
 DATASHEETS
 https://www.ceva-ip.com/wp-content/uploads/BNO080_085-Datasheet.pdf
