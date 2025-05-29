@@ -1,3 +1,4 @@
 Current Steps:
 1. SPI for IMU to ESP32 communication (fastest communication) --> to set up data reading, write my own device driver and use sensor fusion from bn008x.
 2. Haedware interrupt pin used esp32 + BNO08X
+3. switching to arduino first implementation for higher level gestures--> will port to nrf chip later
