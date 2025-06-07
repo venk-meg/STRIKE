@@ -5,13 +5,14 @@ https://lastminuteengineers.com/esp32-wroom-32-pinout-reference/ (Pinout ESP32)
 https://github.com/rtek1000/YD-ESP32-23?tab=readme-ov-file (ESP32 devkit in use)
 https://www.makerguides.com/find-i2c-and-spi-default-pins/
 https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/peripherals/spi_master.html#_CPPv415spi_bus_config_t
+https://wiki.seeedstudio.com/XIAO_BLE/
 
 DATASHEETS
 https://www.ceva-ip.com/wp-content/uploads/BNO080_085-Datasheet.pdf
 https://www.espressif.com/sites/default/files/documentation/esp32-s3-wroom-1_wroom-1u_datasheet_en.pdf
 https://www.amazon.com/BNO085-Precision-Sensor-Interface-Replace/dp/B0F3T788HD/ref=sr_1_3?crid=27L0P0AKB04X4&dib=eyJ2IjoiMSJ9.zU9qnmLCfsjVCntxBaHXaElfErer_R7VS_-b8kUuQPFhBHTIdKyOV6fenz2YeC8BM3Yb96IZAmTSgFdNJVmTndm5Uvsw9RSu-uG5xyMPO3Y.FD0V_WTEpUdY1l0JkEi-eTju_-R_AI3Gk364hKD2U7U&dib_tag=se&keywords=imu+bno08x&qid=1748631295&sprefix=imu+bno08%2Caps%2C138&sr=8-3
 (wiring diagram for my imu)
-https://files.seeedstudio.com/wiki/XIAO/Seeed-Studio-XIAO-Series-SOM-Datasheet.pdf --> NRF devboard datasheet
+https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/5732/Seeed%20102010448.pdf --> NRF devboard datasheet --> https://files.seeedstudio.com/wiki/XIAO/Seeed-Studio-XIAO-Series-SOM-Datasheet.pdf
 general nrf datasheets --> https://www.mouser.com/datasheet/2/297/nrf52840_soc_v3_0-2942478.pdf?srsltid=AfmBOooklC4KEi0diJ4VC_yQYfd4fXpFBQyDjQkoyJCiOcR1jWU8eJZj
 https://files.seeedstudio.com/wiki/XIAO-BLE/Nano_BLE_MCU-nRF52840_PS_v1.1.pdf
 
