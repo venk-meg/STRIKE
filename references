@@ -6,6 +6,7 @@ https://github.com/rtek1000/YD-ESP32-23?tab=readme-ov-file (ESP32 devkit in use)
 https://www.makerguides.com/find-i2c-and-spi-default-pins/
 https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/peripherals/spi_master.html#_CPPv415spi_bus_config_t
 https://wiki.seeedstudio.com/XIAO_BLE/
+https://aspirin.media.mit.edu/responsive/wp-content/uploads/sites/4/2013/12/An-Inertial-Measurement-Framework-for-Gesture-Recognition-and-Applications.pdf (Gesture Recognition Guide)
 
 DATASHEETS
 https://www.ceva-ip.com/wp-content/uploads/BNO080_085-Datasheet.pdf
