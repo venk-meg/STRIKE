@@ -2,4 +2,5 @@ Current Steps:
 1. SPI for IMU to ESP32 communication (fastest communication) --> to set up data reading, write my own device driver and use sensor fusion from bn008x.
 2. Haedware interrupt pin used esp32 + BNO08X
 3. switching to arduino first implementation for higher level gestures--> will port to nrf chip later
+--- GOAL --> Focus on a limited environment right now: just plain gesture control no walking just sitting or pausing JUST TO START WITH
 4. gesture learning focus: FSM, Machine learning/figuring out how to process the data and work with it. Maybe scipi ... ?
