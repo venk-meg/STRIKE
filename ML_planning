@@ -1,0 +1,12 @@
+First Steps:
+Gather 5 seconds of ALL actions --> plot them --> see what channels / data you want to work with 
+(mean variance etc ... simplify separate channels into unified information)
+
+Figure out time resolution for gesture detection/ pipleline
+
+Figure out simple ML model Tensorflow, Keras ... KNN, Decision Tree etc. etc. do more research (train on computer export to TFlite
+for microcontroller)
+
+test working + improve
+
+add FSM framework and test within that
