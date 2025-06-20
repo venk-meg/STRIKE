@@ -90,3 +90,114 @@ When the above works:
 | 5. Final PCB     | Medium-High | Combined board      | Compact final system                  |
 
 Let me know if you want a bill of materials, specific FPGA-ESP32 interfacing strategies, or a prototyping tools list.
+
+note: tflite for tinyml plan:
+
+For TinyMCUs like the ESP32 (and later your nRF52840), TensorFlow Lite for Microcontrollers is by far the most mature, well-supported “TinyML” option—and it plugs right into the Arduino/ESP-IDF world. There are also alternatives (uTensor, CMSIS-NN on ARM-M, Edge Impulse’s SDK, etc.), but if you want:
+
+a huge ecosystem of Python tools for data prep & training
+
+rock-solid community support
+
+easy quantization & conversion pipelines
+
+out-of-the-box ESP32 examples
+
+then TFLite-Micro is the way to go.
+
+TL;DR TinyML Workflow (ESP32 Edition)
+Data Collection
+
+Hook your sensor (accelerometer/gyro/mag) up to the ESP32.
+
+Write a simple logger (like you already have) to record raw streams for each gesture: e.g. “start” vs “stop” vs “listen” vs “delete.”
+
+Label and segment: save each gesture clip as a separate CSV (or XLS). Aim for 50–200 examples per class.
+
+Data Pre-processing (in Python)
+
+Load your CSVs with Pandas or NumPy.
+
+Slice into fixed-length windows (e.g. 1 s @ 100 Hz = 100 samples).
+
+Optionally compute features: mean, variance, FFT bins, etc. (or feed raw samples if you want a CNN/1D-Conv).
+
+Model Design & Training
+
+Pick a small model: a 1D-CNN, or a two-layer fully connected net on your features.
+
+In TensorFlow/Keras:
+
+python
+Copy
+Edit
+model = tf.keras.Sequential([
+  tf.keras.layers.Input((window_size, num_axes)),
+  tf.keras.layers.Conv1D(16, 3, activation='relu'),
+  tf.keras.layers.MaxPool1D(2),
+  tf.keras.layers.Flatten(),
+  tf.keras.layers.Dense(32, activation='relu'),
+  tf.keras.layers.Dense(num_classes, activation='softmax'),
+])
+model.compile(optimizer='adam',
+              loss='sparse_categorical_crossentropy',
+              metrics=['accuracy'])
+model.fit(train_X, train_y, validation_data=(val_X,val_y), epochs=20)
+Evaluate & Iterate
+
+Check your validation accuracy / confusion matrix.
+
+Tune window size, feature set, model size.
+
+Convert to TFLite + Quantize
+
+python
+Copy
+Edit
+converter = tf.lite.TFLiteConverter.from_keras_model(model)
+converter.optimizations = [tf.lite.Optimize.DEFAULT]
+tflite_model = converter.convert()
+open('gesture.tflite','wb').write(tflite_model)
+Embed on ESP32
+
+Add TFLite-Micro to your Arduino sketch or ESP-IDF project (there are examples in the TF-Micro repo).
+
+Include your gesture.tflite as a C array via xxd -i gesture.tflite > model_data.cc.
+
+In your loop:
+
+Grab the latest window of sensor data.
+
+Copy it into the TFLM input tensor.
+
+interpreter->Invoke()
+
+Read the softmax output, pick argmax → that’s your recognized gesture.
+
+Wire that to your FSM events.
+
+Deploy & Test in Real Life
+
+Flash to the ESP32, make real-time predictions on your hand gestures while you go about daily tasks.
+
+Log edge cases, refine your dataset, retrain.
+
+Why TFLite-Micro?
+Ultra-lightweight (<100 KB flash + small RAM scratch)
+
+No OS needed, just a single C++ file set
+
+Quantization built-in (integer math) for speed & RAM savings
+
+Arduino & ESP-IDF examples with SPI/ I²C IMU pipelines
+
+Further Reading & Tools
+TinyML Book, Coursera “TinyML” course by Pete Warden
+
+TensorFlow Lite for Microcontrollers Guide
+
+Edge Impulse (for a drag-and-drop MLOps platform)
+
+CMSIS-NN (if you want hand-optimized ARM kernels on M-series; less plug-and-play)
+
+Once you’ve got the basic pipeline up and running—data→train→quantize→flash—you can swap in new gestures, grow your FSM, or even augment with a tiny RNN/LSTM for temporal patterns, all without blowing up your 256 KB RAM / 1 MB flash envelope.
